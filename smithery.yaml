@@ -1,0 +1,7 @@
+startCommand:
+  type: stdio
+  config:
+    command: "fastmcp"
+    args: ["run", "server.py"]
+  environmentVariables:
+    PYTHONUNBUFFERED: "1"

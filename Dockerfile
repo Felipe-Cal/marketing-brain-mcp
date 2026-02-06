@@ -17,9 +17,9 @@ RUN uv pip install --system .
 COPY server.py .
 COPY data/ data/
 
-# Expose port (if using SSE, default for fastmcp is usually stdio but can be sse)
-# docker run -e PORT=8000 ...
+# Expose port
 ENV PORT=8000
+EXPOSE 8000
 
-# Run the server
-CMD ["fastmcp", "run", "server.py"]
+# Run the server in SSE mode, listening on all interfaces
+CMD fastmcp run server.py --transport sse --port $PORT --host 0.0.0.0

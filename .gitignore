@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+*.so
+.DS_Store
+
+# MCP
+*_test.py
+debug_tool.py
+integration_test.py
+verify_server.py

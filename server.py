@@ -2,7 +2,7 @@ from fastmcp import FastMCP
 from pathlib import Path
 
 # Initialize FastMCP server
-mcp = FastMCP("Jimdo Content Engine")
+mcp = FastMCP("Marketing Content Engine")
 
 # Constants
 DATA_DIR = Path(__file__).parent / "data"

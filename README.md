@@ -1,50 +1,26 @@
-# Jimdo Content Engine MCP Server
+# Marketing Brain MCP Server
 
-A lightweight MCP server that acts as the "Marketing Brain" for Jimdo's content automation workflow.
+A lightweight MCP server content engine. It serves brand guidelines and templates to your AI usage.
 
-## Prerequisites
+## Features
 
-- Python 3.10+
-- `uv` (recommended) or `pip`
+- **Brand Source of Truth**: Centralized brand voice and negative constraints.
+- **Centralized Templates**: Standardized structures for Blog posts, Emails, and Social media.
+- **Extensible**: Add new markdown files to `data/templates/` to instantly support new asset types.
 
-## Installation
+## Installation / Usage
 
-1. Create a virtual environment:
-   ```bash
-   uv venv
-   source .venv/bin/activate
-   ```
+### Option 1: Cloud (Easiest for Teams)
+If deployed to a cloud provider (like Railway/Render):
+1.  Add the SSE URL to your MCP client (e.g., `https://your-app.up.railway.app/sse`).
 
-2. Install dependencies:
-   ```bash
-   uv pip install "fastmcp[cli]"
-   # OR
-   pip install "fastmcp[cli]"
-   ```
-
-## Usage
-
-### 1. Developer Inspector (Recommended for Testing)
-The easiest way to test the server is using the FastMCP inspector UI:
-
+### Option 2: Smithery
+Using the [Smithery](https://smithery.ai) CLI:
 ```bash
-fastmcp dev server.py
+npx -y @smithery/cli install github.com/Felipe-Cal/marketing-brain-mcp --client claude
 ```
 
-This will run a local web server (usually at http://localhost:5173 / 3000) where you can interact with the tools appropriately.
-
-### 2. Connect to an MCP Client (e.g., Claude Desktop)
-
-To use this with Claude Desktop or other MCP clients, configure your client to run the server script using Python.
-
-**Example `claude_desktop_config.json`:**
-```json
-{
-  "mcpServers": {
-    "jimdo-content": {
-      "command": "/absolute/path/to/venv/bin/python",
-      "args": ["/absolute/path/to/server.py"]
-    }
-  }
-}
-```
+### Option 3: Local Development
+1. Clone the repo.
+2. Install dependencies: `pip install .`
+3. Run locally: `fastmcp run server.py`

@@ -14,3 +14,9 @@ build-backend = "hatchling.build"
 
 [project.scripts]
 marketing-brain = "server:mcp.run"
+
+[tool.hatch.build.targets.wheel]
+include = [
+  "server.py",
+  "data",
+]

@@ -1,8 +1,13 @@
 from fastmcp import FastMCP
 from pathlib import Path
+from starlette.responses import PlainTextResponse
 
 # Initialize FastMCP server
 mcp = FastMCP("Jimdo Content Engine")
+
+@mcp.app.get("/")
+async def root():
+    return PlainTextResponse("Jimdo Content Engine MCP Server is running! Use /sse for MCP connection.")
 
 # Constants
 DATA_DIR = Path(__file__).parent / "data"
